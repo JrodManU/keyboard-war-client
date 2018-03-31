@@ -23,6 +23,9 @@ class App extends Component {
       this.state.socket.on('game started', (game) => {
         this.setState({ inGame: true  });
       });
+      this.state.socket.on('game ended', (game) => {
+        this.setState({ inGame: false  });
+      });
     }
 
     if(this.state.inGame) {
