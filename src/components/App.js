@@ -19,6 +19,12 @@ class App extends Component {
   }
 
   render() {
+    if(this.state.socket) {
+      this.state.socket.on('game started', (game) => {
+        this.setState({ inGame: true  });
+      });
+    }
+
     if(this.state.inGame) {
       return (
         <GameWindow socket={this.state.socket} />
