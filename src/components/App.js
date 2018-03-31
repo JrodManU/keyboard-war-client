@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 
-import CreateGame from './CreateGame.js';
-import GameList from "./GameList.js";
+import Lobby from './Lobby.js';
+import GameWindow from "./GameWindow.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      socket: null
+      socket: null,
+      inGame: false
     }
   }
 
@@ -18,12 +19,15 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <CreateGame socket={this.state.socket}/>
-        <GameList socket={this.state.socket}/>
-      </div>
-    );
+    if(this.state.inGame) {
+      return (
+        <GameWindow socket={this.state.socket} />
+      );
+    } else {
+      return (
+        <Lobby socket={this.state.socket} />
+      );
+    }
   }
 }
 
