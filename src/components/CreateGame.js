@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 class CreateGame extends Component {
+  
   createGame() {
-    this.props.socket.emit("create game", "wow");
+    if(this.props.socket) {
+      this.props.socket.emit("create game", "wow");
+    }
   }
   render() {
     return(
