@@ -29,7 +29,7 @@ class GameList extends Component {
     let games = [];
     for(var i = 0; i < this.state.games.length; i++) {
       games.push(
-        <Game key={this.state.games[i].id} game={this.state.games[i]} />
+        <Game socket={this.props.socket} key={this.state.games[i].id} game={this.state.games[i]} />
       );
     }
 

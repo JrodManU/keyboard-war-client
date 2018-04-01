@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 class JoinGame extends Component {
 
   joinGame() {
-    if(this.props.socket) {
-      this.props.socket.emit("join game", this.props.gameId);
-    }
+    this.props.socket.emit("join game", this.props.gameId);
   }
   render() {
     return(

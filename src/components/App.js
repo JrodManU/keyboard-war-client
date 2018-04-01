@@ -26,15 +26,19 @@ class App extends Component {
       this.state.socket.on('game ended', (game) => {
         this.setState({ inGame: false  });
       });
-    }
 
-    if(this.state.inGame) {
-      return (
-        <GameWindow socket={this.state.socket} />
-      );
+      if(this.state.inGame) {
+        return (
+          <GameWindow socket={this.state.socket} />
+        );
+      } else {
+        return (
+          <Lobby socket={this.state.socket} />
+        );
+      }
     } else {
       return (
-        <Lobby socket={this.state.socket} />
+        <p>Loading...</p>
       );
     }
   }

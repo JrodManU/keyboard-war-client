@@ -7,7 +7,7 @@ class Game extends Component {
     return(
       <div>
         <p className="game">{this.props.game.name}</p>
-        <JoinGame gameId={this.props.game.id} />
+        <JoinGame socket={this.props.socket} gameId={this.props.game.id} />
       </div>
     );
   }
